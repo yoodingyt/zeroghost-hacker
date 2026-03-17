@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zerogosht Cyber Security</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Courier New;
+background:black;
+color:#00ff9d;
+overflow-x:hidden;
+}
+
+/* MATRIX CANVAS */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
+padding:25px;
+text-align:center;
+border-bottom:1px solid #00ff9d;
+}
+
+header h1{
+font-size:40px;
+margin:0;
+}
+
+header p{
+color:#00ffaa;
+}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+}
+
+nav a{
+color:#00ff9d;
+text-decoration:none;
+border:1px solid #00ff9d;
+padding:8px 15px;
+border-radius:6px;
+transition:0.3s;
+}
+
+nav a:hover{
+background:#00ff9d;
+color:black;
+}
+
+/* SECTIONS */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.card{
+background:#020202;
+border:1px solid #00ff9d;
+padding:25px;
+border-radius:10px;
+margin-bottom:25px;
+}
+
+/* TERMINAL */
+
+.terminal{
+background:black;
+border:1px solid #00ff9d;
+padding:20px;
+font-size:14px;
+}
+
+.terminal span{
+color:white;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+border-top:1px solid #00ff9d;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<header>
+
+<h1>Zerogosht</h1>
+<p>Cyber Security • Ethical Hacker • Research Lab</p>
+
+</header>
+
+<nav>
+
+<a href="#about">About</a>
+<a href="#tools">Tools</a>
+<a href="#terminal">Terminal</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<div class="container">
+
+<section id="about" class="card">
+
+<h2>About Zerogosht</h2>
+
+<p>
+
+Zerogosht cyber security research platformudur.
+
+Bu platform siber güvenlik, etik hacking ve ağ güvenliği üzerine araştırmalar içerir.
+
+</p>
+
+</section>
+
+<section id="tools" class="card">
+
+<h2>Security Tools</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Network Scanner</h3>
+<p>Network port tarama ve güvenlik analizi.</p>
+</div>
+
+<div class="card">
+<h3>Password Analyzer</h3>
+<p>Şifre güvenliği kontrol aracı.</p>
+</div>
+
+<div class="card">
+<h3>Web Security</h3>
+<p>Web uygulama güvenlik testi.</p>
+</div>
+
+<div class="card">
+<h3>OSINT Tools</h3>
+<p>Açık kaynak istihbarat analiz araçları.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="terminal" class="card">
+
+<h2>Terminal</h2>
+
+<div class="terminal">
+
+<p>> Initializing Zerogosht security environment...</p>
+<p>> Loading modules...</p>
+<p>> Network scanner <span>active</span></p>
+<p>> Web security analyzer <span>active</span></p>
+<p>> Encryption module <span>active</span></p>
+<p>> System ready...</p>
+
+</div>
+
+</section>
+
+<section id="contact" class="card">
+
+<h2>Contact</h2>
+
+<p>Email: security@zerogosht.net</p>
+
+</section>
+
+</div>
+
+<footer>
+
+<p>© 2026 Zerogosht Cyber Security</p>
+
+</footer>
+
+<script>
+
+/* MATRIX EFFECT */
+
+const canvas=document.getElementById("matrix")
+const ctx=canvas.getContext("2d")
+
+canvas.height=window.innerHeight
+canvas.width=window.innerWidth
+
+const letters="01"
+const fontSize=14
+const columns=canvas.width/fontSize
+
+const drops=[]
+
+for(let x=0;x<columns;x++)drops[x]=1
+
+function draw(){
+
+ctx.fillStyle="rgba(0,0,0,0.05)"
+ctx.fillRect(0,0,canvas.width,canvas.height)
+
+ctx.fillStyle="#00ff9d"
+ctx.font=fontSize+"px monospace"
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters[Math.floor(Math.random()*letters.length)]
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize)
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0
+
+drops[i]++
+
+}
+
+}
+
+setInterval(draw,33)
+
+</script>
+
+</body>
+</html>
